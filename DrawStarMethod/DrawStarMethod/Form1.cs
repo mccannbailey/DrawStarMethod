@@ -22,22 +22,23 @@ namespace DrawStarMethod
             InitializeComponent();
             drawing = CreateGraphics();
 
-            cx = this.Width - 80 / 2; cy = this.Height / 2;            
+            cx = size / 2;            
             whitePen = new Pen(Color.White);
         }
 
         private void drawButton_Click(object sender, EventArgs e)
         {
-            xCoord = Convert.ToInt32(xBox.Text);
+            drawing.Clear(Color.Black);
+            xCoord = Convert.ToInt32(xBox.Text) + 80;
             yCoord = Convert.ToInt32(yBox.Text);
             size = Convert.ToInt32(sizeBox.Text);
-            DrawStar();
+            DrawStar(xCoord, yCoord, size, e); 
         }
 
         private void DrawStar(float xCoord, float yCoord, float size, EventArgs e)
         {
-            drawing.DrawLine(whitePen, xCoord, yCoord, xCoord - 50, yCoord + 50);
-            drawing.DrawLine(whitePen, xCoord, yCoord, xCoord + 50, yCoord + 50);            
+            drawing.DrawRectangle(whitePen, xCoord, yCoord, size, size);
+            //drawing.DrawLine(whitePen, cx, yCoord, cx - 25, cy + 25);                        
         }
     }
 }
