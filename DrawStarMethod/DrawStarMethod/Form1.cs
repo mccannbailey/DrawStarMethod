@@ -29,9 +29,22 @@ namespace DrawStarMethod
         private void drawButton_Click(object sender, EventArgs e)
         {
             drawing.Clear(Color.Black);
-            xCoord = Convert.ToInt32(xBox.Text) + 80;
-            yCoord = Convert.ToInt32(yBox.Text);
-            size = Convert.ToInt32(sizeBox.Text);
+            try
+            {
+                xCoord = Convert.ToInt32(xBox.Text) + 80;
+                yCoord = Convert.ToInt32(yBox.Text);
+                size = Convert.ToInt32(sizeBox.Text);
+            }
+            catch
+            {
+                
+            }
+
+            if (yCoord > 300 || xCoord > 300 || size > 300)
+            {
+                this.Width += 500;
+                this.Height += 500;
+            }
             DrawStar(xCoord, yCoord, size, e); 
         }
 
