@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Drawing.Drawing2D;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,16 +14,16 @@ namespace DrawStarMethod
     public partial class Form1 : Form
     {
         Graphics drawing;
-        Pen whitePen;
+        Pen userPen;
         int xCoord, yCoord, size;
-        bool resize;
-
+        bool resize, seizureSalad = true;
+        string penColor;  
+        
         public Form1()
         {
-            InitializeComponent();
-                   
-            whitePen = new Pen(Color.White);
-            errorLabel.Text = "Maximum draw space of 500x500";
+            InitializeComponent();                   
+            userPen = new Pen(Color.White);
+            errorLabel.Text = "Maximum draw space of 800x800";
         }
 
         private void drawButton_Click(object sender, EventArgs e)
@@ -31,6 +31,27 @@ namespace DrawStarMethod
             drawing = CreateGraphics();
             errorLabel.Text = "";
             drawing.Clear(Color.Black);
+            penColor = colorBox.Text;
+
+            switch (penColor)
+            {
+                case "Red":
+                    userPen.Color = Color.Red;
+                    break;
+                case "Blue":
+                    userPen.Color = Color.Blue;
+                    break;
+                case "Green":
+                    userPen.Color = Color.Green;
+                    break;
+                case "Yellow":
+                    userPen.Color = Color.Yellow;
+                    break;
+                case "White":
+                    userPen.Color = Color.White;
+                    break;
+            }
+
             try
             {
                 xCoord = Convert.ToInt32(xBox.Text) + 80;
@@ -41,7 +62,7 @@ namespace DrawStarMethod
             {
                 errorLabel.Text = "Error, did you input a number?";
             }
-            if (size * size > 900 && !resize)
+            if (size * size > 90000 && !resize)
             {
                 this.Width += 500;
                 this.Height += 500;
@@ -57,7 +78,7 @@ namespace DrawStarMethod
             int xrectMid = xCoord + size / 2;
             int yrectMid = yCoord + size / 2;
             int oneThird = size / 3;
-            drawing.DrawRectangle(whitePen, xCoord, yCoord, size, size);
+            drawing.DrawRectangle(userPen, xCoord, yCoord, size, size);
 
             Point[] star = new Point[11];
             #region Star point array
@@ -74,7 +95,7 @@ namespace DrawStarMethod
             star[8] = new Point(xCoord + size, yCoord + oneThird);
             star[9] = new Point(xCoord + size - oneThird, yCoord + oneThird);
             star[10] = new Point(xrectMid, yCoord);
-            drawing.DrawLines(whitePen, star);
+            drawing.DrawLines(userPen, star);
             //drawing.DrawLine(new Pen(Color.Red), star[1], star[9]);     //to test straightness
             #endregion
         }

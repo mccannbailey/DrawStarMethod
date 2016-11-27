@@ -37,6 +37,8 @@
             this.sizeLabel = new System.Windows.Forms.Label();
             this.drawButton = new System.Windows.Forms.Button();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.colorBox = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -108,7 +110,7 @@
             // drawButton
             // 
             this.drawButton.ForeColor = System.Drawing.Color.Black;
-            this.drawButton.Location = new System.Drawing.Point(12, 170);
+            this.drawButton.Location = new System.Drawing.Point(12, 213);
             this.drawButton.Name = "drawButton";
             this.drawButton.Size = new System.Drawing.Size(49, 23);
             this.drawButton.TabIndex = 7;
@@ -127,12 +129,40 @@
             this.errorLabel.Size = new System.Drawing.Size(0, 15);
             this.errorLabel.TabIndex = 8;
             // 
+            // colorBox
+            // 
+            this.colorBox.BackColor = System.Drawing.Color.Silver;
+            this.colorBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colorBox.Items.AddRange(new object[] {
+            "Red",
+            "Blue",
+            "Green",
+            "Yellow",
+            "White"});
+            this.colorBox.Location = new System.Drawing.Point(12, 175);
+            this.colorBox.Name = "colorBox";
+            this.colorBox.Size = new System.Drawing.Size(49, 21);
+            this.colorBox.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(9, 159);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Color:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(380, 300);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.colorBox);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.drawButton);
             this.Controls.Add(this.sizeLabel);
@@ -162,6 +192,8 @@
         private System.Windows.Forms.Label sizeLabel;
         private System.Windows.Forms.Button drawButton;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.ComboBox colorBox;
+        private System.Windows.Forms.Label label2;
     }
 }
 
