@@ -36,6 +36,7 @@
             this.sizeBox = new System.Windows.Forms.TextBox();
             this.sizeLabel = new System.Windows.Forms.Label();
             this.drawButton = new System.Windows.Forms.Button();
+            this.errorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -115,12 +116,24 @@
             this.drawButton.UseVisualStyleBackColor = true;
             this.drawButton.Click += new System.EventHandler(this.drawButton_Click);
             // 
+            // errorLabel
+            // 
+            this.errorLabel.AutoSize = true;
+            this.errorLabel.BackColor = System.Drawing.Color.Black;
+            this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorLabel.ForeColor = System.Drawing.Color.White;
+            this.errorLabel.Location = new System.Drawing.Point(86, 9);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(0, 15);
+            this.errorLabel.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(380, 300);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.drawButton);
             this.Controls.Add(this.sizeLabel);
             this.Controls.Add(this.sizeBox);
@@ -132,7 +145,6 @@
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -149,6 +161,7 @@
         private System.Windows.Forms.TextBox sizeBox;
         private System.Windows.Forms.Label sizeLabel;
         private System.Windows.Forms.Button drawButton;
+        private System.Windows.Forms.Label errorLabel;
     }
 }
 
