@@ -16,7 +16,7 @@ namespace DrawStarMethod
         Graphics drawing;
         Pen userPen;
         int xCoord, yCoord, size;
-        bool resize, seizureSalad = true;
+        bool resize;
         string penColor;  
         
         public Form1()
@@ -70,10 +70,10 @@ namespace DrawStarMethod
                 drawButton.PerformClick();
                 this.Refresh();
             }            
-            DrawStar(xCoord, yCoord, size, e);
+            DrawStar(xCoord, yCoord, size, userPen, e);
         }
 
-        private void DrawStar(int xCoord, int yCoord, int size, EventArgs e)
+        private void DrawStar(int xCoord, int yCoord, int size, Pen userPen, EventArgs e)
         {
             int xrectMid = xCoord + size / 2;
             int yrectMid = yCoord + size / 2;
